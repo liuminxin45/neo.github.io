@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --void-black: #050505;
+    --grid-charcoal: #121212;
+    --lcd-ash: #BDC3C7;
+    --cyan-boot: #48DBFB;
+    --tactile-charcoal: #2D3436;
+    --highlight-silver: #E0E5E9;
+    --background: 0 0% 2%;
+    --foreground: 210 5% 78%;
+    --card: 0 0% 7%;
+    --card-foreground: 210 5% 78%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 210 5% 78%;
+    --primary: 195 95% 63%;
+    --primary-foreground: 0 0% 2%;
+    --secondary: 200 8% 19%;
+    --secondary-foreground: 210 5% 90%;
+    --muted: 200 8% 19%;
+    --muted-foreground: 210 5% 55%;
+    --accent: 195 95% 63%;
+    --accent-foreground: 0 0% 2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 200 8% 19%;
+    --input: 200 8% 19%;
+    --ring: 195 95% 63%;
+    --radius: 0.625rem;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--void-black);
+    color: var(--lcd-ash);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  ::selection {
+    background-color: rgba(72, 219, 251, 0.25);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .font-mono-code {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .glass-surface {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .pixel-grid-bg {
+    background-image:
+      linear-gradient(rgba(72, 219, 251, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(72, 219, 251, 0.04) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+
+  .section-padding {
+    padding-left: clamp(1.5rem, 5vw, 6rem);
+    padding-right: clamp(1.5rem, 5vw, 6rem);
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 20px rgba(72, 219, 251, 0.3), 0 0 40px rgba(72, 219, 251, 0.1);
+  }
+
+  .neon-border {
+    border: 1px solid rgba(72, 219, 251, 0.2);
+    box-shadow: 0 0 10px rgba(72, 219, 251, 0.05), inset 0 0 10px rgba(72, 219, 251, 0.02);
+  }
+
+  .typing-cursor::after {
+    content: '_';
+    animation: blink 1s step-end infinite;
+    color: var(--cyan-boot);
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+}
